@@ -40,6 +40,7 @@ public struct ReceiptPickerScannerMenuView<Label>: View where Label: View {
         #if os(iOS)
         .sheet(isPresented: $vm.isShowingCamera) {
             CameraView(isPresented: $vm.isShowingCamera, image: $vm.cameraImage)
+                .edgesIgnoringSafeArea(.bottom)
         }
         #endif
         .photosPicker(isPresented: $vm.shouldPresentPhotoPicker, selection: $vm.selectedPhotoPickerItem, matching: .images)
